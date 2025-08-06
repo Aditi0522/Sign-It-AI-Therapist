@@ -1,0 +1,15 @@
+# Ignore all files in backend/data subfolders
+backend/data/dataset/*
+backend/data/videos/*
+
+# But keep the .gitkeep files
+!backend/data/dataset/.gitkeep
+!backend/data/videos/.gitkeep
+
+venv/
+
+# Ignore common large/unwanted file types
+*.mp4
+*.pyd
+*.dll
+__pycache__/

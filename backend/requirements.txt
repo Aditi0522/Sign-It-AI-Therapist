@@ -1,0 +1,11 @@
+mediapipe
+fastapi
+uvicorn
+Websocket
+opencv-python
+numpy
+fastdtw
+python-multipart
+pytube
+pandas
+tqdm
