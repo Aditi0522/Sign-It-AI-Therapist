@@ -17,9 +17,8 @@ class SignModel(object):
         self.lh_embedding = self._get_embedding_from_landmark_list(left_hand_list)
         self.rh_embedding = self._get_embedding_from_landmark_list(right_hand_list)
 
-        @staticmethod
-        def _get_embedding_from_landmark_list(hand_list: List[List[float]],) -> List[List[float]]:
-               
+    
+    def _get_embedding_from_landmark_list(self,hand_list: List[List[float]],) -> List[List[float]]:  
             """
             Params
                 hand_list: List of all landmarks for each frame of a video

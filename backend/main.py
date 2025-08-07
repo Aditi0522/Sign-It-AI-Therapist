@@ -7,6 +7,7 @@ from io import BytesIO
 import cv2
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
+from sign_prediction import predict_sign
 
 app = FastAPI()
 
@@ -54,9 +55,9 @@ def main():
 @app.post("/process_frame")
 async def process_frame(req: FrameRequest):
    image = decode_image(req.image)
-   # sign = predict_sign(image)
-   # return {"sign":sign}
-   return {"sign":10}
+   sign,confidence = predict_sign(image)
+   return {"sign":sign,
+           "confidence": round(confidence,2)}
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):

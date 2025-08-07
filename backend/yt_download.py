@@ -12,7 +12,7 @@ def download_video(name, video_id, start_time, duration_time):
     if not os.path.exists(file_path):
         os.mkdir(file_path)
     video = ( 
-        Youtube(f"https://www.youtube.com/watch?v={video_id}").stream.filter(file_extension="mp4").first()
+        Youtube(f"https://www.youtube.com/watch?v={video_id}").streams.filter(file_extension="mp4").first()
               )
     file_name = re.sub(r"[.;:,?!]","",video.title)+".mp4"
     if not os.path.exists(os.path.join(FOLDER,file_name)):
@@ -23,7 +23,7 @@ def download_video(name, video_id, start_time, duration_time):
         return
     
     if start_time!= start_time and duration_time!=duration_time:
-        copyfile(src=os.apth.join(FOLDER,file_name), dst=output_file)
+        copyfile(src=os.path.join(FOLDER,file_name), dst=output_file)
     else:
         original_video = os.path.join(FOLDER,file_name)
         try:
