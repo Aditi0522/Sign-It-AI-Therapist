@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-   "https://localhost:3000"
+   "http://localhost:3000"
 ]
 
 app.add_middleware(
@@ -48,6 +48,10 @@ def decode_image(base64_str):
    return cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
 
 @app.get("/")
+def main():
+   return{"key":"value"}
+
+@app.post("/process_frame")
 async def process_frame(req: FrameRequest):
    image = decode_image(req.image)
    # sign = predict_sign(image)
